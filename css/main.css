@@ -1,0 +1,125 @@
+.bag:after, .clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.bag, .clearfix {
+  display: inline-block;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  text-transform: lowercase;
+  font-family: "HelveticaNeue", Helvetica, sans-serif;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.75);
+  /*background-image: url(../img/bg-vacation.jpg);*/
+  /*background-image: url(../img/bg-cool.jpg);*/
+}
+
+.container {
+  /*background-image: url(../img/bg-shutter.jpg);*/
+  background-color: rgb(250, 250, 250);
+  padding: 2em;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: blue;
+}
+
+a:hover {
+  color: blue;
+}
+
+a:visited {
+  color: blue;
+}
+
+a:active {
+  color: blue;
+}
+
+header {
+  margin-bottom: 2em;
+}
+
+h1 {
+  text-shadow: -1px 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+header h1 {
+  text-transform: uppercase;
+  letter-spacing: 1em;
+}
+
+header h2 {
+  letter-spacing: .83em;
+  position: relative;
+  left: -0.3em;
+}
+
+header h1,
+header h2 {
+  margin: 0;
+  line-height: 1em;
+}
+
+.main {
+}
+
+.category {
+  vertical-align: top;
+  display: inline-block;
+  margin: 0 2em 2em 2em;
+}
+
+.category h1 {
+  text-transform: uppercase;
+}
+
+.category.customs {
+  display: block;
+}
+
+.bag {
+  font-family: "Courier New", Courier, serif;
+  font-size: 12px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.75);
+  padding: 1em;
+}
+
+#rolltop img {
+  width: 400px;
+  height: auto;
+}
+
+.bag .images {
+  /*float: left;*/
+}
+
+.bag .images li {
+  display: none;
+}
+
+.bag .images li:first-child {
+  display: block;
+}
+
+.bag .info {
+  padding: 1em;
+  /*float: left;*/
+}
