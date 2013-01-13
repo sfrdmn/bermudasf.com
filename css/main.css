@@ -23,12 +23,17 @@ body {
   color: rgba(0, 0, 0, 0.75);
   /*background-image: url(../img/bg-vacation.jpg);*/
   /*background-image: url(../img/bg-cool.jpg);*/
+  background: url(../img/bg-coolguy.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .container {
   /*background-image: url(../img/bg-shutter.jpg);*/
-  background-color: rgb(250, 250, 250);
-  padding: 2em;
+  /*background-image: url(/img/bg-coolguy.jpg);*/
+  /*padding: 2em;*/
 }
 
 ul {
@@ -53,16 +58,29 @@ a:active {
 }
 
 header {
+  border-top: 5px solid white;
+  padding: 2em;
   margin-bottom: 2em;
+  /*background-image: url(../img/palm.jpg);
+  background-size: 9%;
+  background-position: 0 0px;
+  color: white;
+  box-shadow: inset 0px -10px 10px rgba(0, 0, 0, 0.5);*/
+}
+
+h1, h2, h3 {
+  color: rgb(0, 255, 255);
+  color: white;
 }
 
 h1 {
-  text-shadow: -1px 1px 0 rgba(255, 255, 255, 0.4);
+  /*text-shadow: -1px 1px 0 rgba(255, 255, 255, 0.4);*/
 }
 
 header h1 {
   text-transform: uppercase;
   letter-spacing: 1em;
+  font-size: 4em;
 }
 
 header h2 {
@@ -86,6 +104,10 @@ header h2 {
   margin: 0 2em 2em 2em;
 }
 
+.category.customs {
+  margin: 0 auto;
+}
+
 .category h1 {
   text-transform: uppercase;
 }
@@ -101,12 +123,6 @@ header h2 {
   border: 1px solid rgba(0, 0, 0, 0.75);
   padding: 1em;
 }
-
-#rolltop img {
-  width: 400px;
-  height: auto;
-}
-
 .bag .images {
   /*float: left;*/
 }
@@ -121,5 +137,10 @@ header h2 {
 
 .bag .info {
   padding: 1em;
-  /*float: left;*/
 }
+
+.customs .bag-list > li {
+  display: inline-block;
+  margin: 2em 2em;
+}
+
