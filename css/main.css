@@ -24,6 +24,7 @@ body {
   /*background-image: url(../img/bg-vacation.jpg);*/
   /*background-image: url(../img/bg-cool.jpg);*/
   background: url(../img/bg-coolguy.jpg) no-repeat center center fixed;
+  background: url(../img/sam-bg-color.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -31,9 +32,11 @@ body {
 }
 
 .container {
+  border-top: 5px solid white;
   /*background-image: url(../img/bg-shutter.jpg);*/
   /*background-image: url(/img/bg-coolguy.jpg);*/
   /*padding: 2em;*/
+  color: rgba(255, 255, 255, 0.9);
 }
 
 ul {
@@ -58,9 +61,10 @@ a:active {
 }
 
 header {
-  border-top: 5px solid white;
-  padding: 2em;
-  margin-bottom: 2em;
+  margin-top: 4em;
+  margin-bottom: 6em;
+  position: relative;
+  display: inline-block;
   /*background-image: url(../img/palm.jpg);
   background-size: 9%;
   background-position: 0 0px;
@@ -70,23 +74,47 @@ header {
 
 h1, h2, h3 {
   color: rgb(0, 255, 255);
+  color: blue;
   color: white;
+  /*background-color: white;*/
+  /*text-shadow: -1px 1px 0 rgba(0, 0, 0, 0.75);*/
+  text-shadow: -1px 1px 0 rgb(255, 255, 255),
+      -2px 2px 0 rgb(255, 255, 255),
+      -3px 3px 0 rgb(255, 255, 255),
+      -4px 4px 0 rgb(255, 255, 255),
+      -5px 5px 0 rgb(255, 255, 255),
+      -6px 6px 0 rgb(255, 255, 255),
+      -7px 7px 0 rgb(255, 255, 255),
+      -8px 8px 0 rgb(255, 255, 255);
+  /*text-shadow: -1px 1px 0 rgb(255, 0, 0),
+      -2px 2px 0 rgb(255, 0, 0),
+      -3px 3px 0 rgb(255, 0, 0),
+      -4px 4px 0 rgb(255, 0, 0),
+      -5px 5px 0 rgb(0, 0, 255),
+      -6px 6px 0 rgb(0, 0, 255),
+      -7px 7px 0 rgb(0, 0, 255),
+      -8px 8px 0 rgb(0, 0, 255);*/
 }
 
 h1 {
   /*text-shadow: -1px 1px 0 rgba(255, 255, 255, 0.4);*/
 }
-
 header h1 {
   text-transform: uppercase;
-  letter-spacing: 1em;
+  letter-spacing: .5em;
   font-size: 4em;
+  font-size: 6em;
 }
-
+header h1,
+.category h1 {
+}
 header h2 {
-  letter-spacing: .83em;
+  /*letter-spacing: .83em;
   position: relative;
-  left: -0.3em;
+  left: -0.3em*/
+  font-size: 16px;
+  position: absolute;
+  right: 0;
 }
 
 header h1,
@@ -94,34 +122,38 @@ header h2 {
   margin: 0;
   line-height: 1em;
 }
-
 .main {
 }
 
 .category {
   vertical-align: top;
   display: inline-block;
-  margin: 0 2em 2em 2em;
-}
-
-.category.customs {
-  margin: 0 auto;
+  margin: 0 10% 0 2em;
 }
 
 .category h1 {
+  margin-top: 0;
   text-transform: uppercase;
 }
 
 .category.customs {
   display: block;
+  margin: 4em auto;
+}
+
+.category.rucksack {
+  margin-left: 0;
+}
+.category.rolltop {
+  margin-right: 0;
 }
 
 .bag {
   font-family: "Courier New", Courier, serif;
   font-size: 12px;
   background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.75);
-  padding: 1em;
+  padding: 1em 1em 0 1em;
+  padding: 2em 2em 0 2em;
 }
 .bag .images {
   /*float: left;*/
@@ -137,9 +169,20 @@ header h2 {
 
 .bag .info {
   padding: 1em;
+  color: rgb(51, 51, 51);
 }
-
-.customs .bag-list > li {
+.bag .info p {
+  margin: 0;
+}
+.bag .cart {
+  display: none;
+}
+.bag .description {
+  display: none;
+}
+.bag .price {
+}
+.bag-list > li {
   display: inline-block;
   margin: 2em 2em;
 }
