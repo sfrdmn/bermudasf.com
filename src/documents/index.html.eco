@@ -1,0 +1,132 @@
+---
+layout: default
+
+path: /static/img/bags/
+
+about: |
+  <p>
+  Aesthetic helvetica meggings, wayfarers lo-fi tofu pour-over direct trade. Pop-up deep v mcsweeney's ethnic, four loko irony neutra stumptown disrupt craft beer american apparel vice yr. Portland pour-over fingerstache brunch artisan PBR, blue bottle salvia gentrify scenester helvetica yr leggings mixtape. Fashion axe cosby sweater cardigan, kale chips mumblecore
+  </p>
+
+ordering: >
+  <p>
+  Kogi bicycle rights etsy mcsweeney's fingerstache single-origin coffee aesthetic next level freegan. Fingerstache tousled quinoa aesthetic deep v. Wolf retro semiotics occupy cred, mlkshk meggings try-hard. Odd future messenger bag beard, semiotics freegan farm-to-table gluten-free marfa iphone master cleanse +1 banksy polaroid.
+  </p>
+
+categories:
+  - name: Rucksack
+    items:
+      - id: RS-01
+        description: >
+          meh okay what
+        price: $125
+        low_res:
+          - bag01.jpg
+          - bag02.jpg
+          - bag03.jpg
+          - bag04.jpg
+          - bag05.jpg
+        high_res:
+          - one
+          - two
+          - three
+---
+
+<!-- Nav widget -->
+
+<% nav = () => %>
+  <nav class="nav-big">
+    <ul class="unstyled">
+      <li><a href="#home">BermudaSF</a></li>
+      <li><a href="#info">Info</a></li>
+      <li><a href="#shop">Shop</a></li>
+    </ul>
+  </nav>
+<% end %>
+
+<!-- Content -->
+
+<header>
+  <div class="logo">Bermuda SF</div>
+  <%= nav() %>
+</header>
+
+<div class="main" role="main">
+
+  <%= nav() %>
+
+  <section id="info" class="about">
+    <h1>About</h1>
+    <div>
+      <%- @document.meta.about %>
+    </div>
+  </section>
+
+  <section class="ordering">
+    <h1>Ordering information</h1>
+    <div>
+      <%- @document.meta.ordering %>
+    </div>
+  </section>
+
+  <% for category, i in @document.meta.categories: %>
+    <section id="<%- if i == 0 then 'shop' %>">
+      <h1><%- category.name %></h1>
+      <% for item in category.items: %>
+        <div class="item">
+          <ul class="low-res">
+            <% for path in item.low_res: %>
+              <li><img src="<%- @document.meta.path + path %>"></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </section>
+  <% end %>
+
+</div>
+
+<footer>
+  <ul>
+    <li>
+      <a href="#">Imprint</a>
+    </li>
+  </ul>
+</footer>
+
+<script type="text/javascript">
+  var $header = $('body > header');
+  var $nav = $header.children('nav');
+  var navHeight = $nav.height();
+  var fixedOffset = 33;
+  var isFixed = true;
+  window.addEventListener('scroll', function() {
+    var bbox = $header[0].getBoundingClientRect();
+    var offset = bbox.bottom - navHeight;
+    if (offset <= fixedOffset) {
+      isFixed = false;
+      var delta = fixedOffset - offset;
+      $nav.css({'bottom': -delta})
+    } else if (!isFixed) {
+      isFixed = true;
+      $nav.css({'bottom': 0});
+    }
+  });
+ /* var $header = $('body > header');
+  var $nav = $header.children('nav');
+  var navHeight = $nav.height();
+  var fixedOffset = 33;
+  var isFixed = false;
+  window.addEventListener('scroll', function() {
+    var bbox = $header[0].getBoundingClientRect();
+    var offset = bbox.bottom - navHeight;
+    console.log(bbox, offset);
+    if (offset <= fixedOffset && !isFixed) {
+      isFixed = true;
+      $nav.addClass('nav-fixed');
+    } else if (offset > fixedOffset && isFixed) {
+      isFixed = false;
+      $nav.removeClass('nav-fixed');
+    }
+  });*/
+</script>

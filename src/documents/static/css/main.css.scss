@@ -1,0 +1,221 @@
+@import "compass/reset";
+@import "compass/css3";
+
+/* CONFIG */
+
+$background-color: white;
+
+$header-background-image: url(/static/img/jon-bg-drink.jpg);
+//$header-background-image: url(/static/img/sam-bg-color.jpg);
+
+$logo-name: "logo-white";
+$logo-filename: $logo-name + ".png";
+$logo-filename-2x: $logo-name + ".2x.png";
+$logo-width-desktop: 301px;
+$logo-height-desktop: 227px;
+$logo-width-mobile: 120px;
+$logo-height-mobile: 100px;
+
+$zag-width: 77px;
+$zag-height: 5px;
+$zag-topnav-name: "zag-white-many";
+$zag-topnav-filename: $zag-topnav-name + ".png";
+$zag-topnav-filename-2x: $zag-topnav-name + ".2x.png";
+
+$nav-line-height: 100px;
+$nav-font-size: 66px;
+$nav-width: 300px;
+
+// MIXINS / MODULES
+
+.clearfix {
+  *zoom: 1;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+nav.nav-big {
+  font-size: $nav-font-size;
+  text-align: center;
+  width: $nav-width;
+
+  ul {
+    margin-bottom: 0;
+    margin-bottom: $nav-font-size / 2;
+  }
+
+  li {
+    //padding-left: $nav-width / 4;
+    position: relative;
+    top: 0;
+    line-height: $nav-line-height;
+
+    &:first-child {
+
+      &:after {
+        //display: none;
+      }
+
+      a {
+        color: rgb(0, 255, 255);
+        display: none;
+
+        &:hover {
+
+        }
+      }
+    }
+
+    &::after {
+      background-repeat: repeat-x;
+      background-size: $zag-width $zag-height;
+      width: 250px;
+      width: 100%;
+      height: $zag-height;
+      position: absolute;
+      bottom: -($nav-line-height / 8);
+      left: 0;
+      content: " ";
+    }
+  }
+
+  a {
+    display: inline;
+    color: white;
+
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
+
+nav.nav-big.nav-fixed {
+}
+
+// CSS
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  //background-image: url(/static/img/checker-bg.gif);
+  padding: 0;
+  text-transform: lowercase;
+  background-color: $background-color;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+
+a {
+  color: #0088cc;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #005580;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+body > header,
+body > .main,
+body > footer {
+//  display: block;
+//  margin: 0 auto;
+//  background-color: $background-color;
+}
+
+header {
+  position: relative;
+  top: 0;
+  z-index: 2;
+  overflow: hidden;
+  height: 100%;
+  background: $header-background-image no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  .logo {
+    background-image: url(/static/img/#{$logo-filename});
+    background-size: $logo-width-desktop $logo-height-desktop;
+    width: $logo-width-desktop;
+    height: $logo-height-desktop;
+    text-indent: -9999px;
+    overflow: hidden;
+    position: relative;
+    top: 1em;
+    left: 1em;
+    //display: none;
+  }
+
+  .logo, nav {
+    margin-left: 0%;
+  }
+
+  nav {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.main {
+  position: relative;
+  top: 0;
+  z-index: 1;
+  height: 2000px;
+  margin-left: $nav-width;
+
+  h1 {
+    font-size: $nav-font-size;
+  }
+
+  nav.nav-big {
+    position: fixed;
+    top: $nav-font-size / 2;
+    left: 0;
+
+    a {
+      color: rgb(112, 112, 112);
+      color: rgb(255, 255, 0);
+
+      &:hover {
+        color: black;
+      }
+    }
+  }
+}
+
+// MEDIA QUERIES
+
+@media screen and (min--moz-device-pixel-ratio: 2),
+screen and (-o-min-device-pixel-ratio: 2/1),
+screen and (-webkit-min-device-pixel-ratio: 2),
+screen and (min-device-pixel-ratio: 2) {
+
+  header {
+    nav.nav-big {
+      li::after {
+        background-image: url(/static/img/#{$zag-topnav-filename-2x});
+      }
+    }
+
+    .logo {
+      background-image: url(/static/img/#{$logo-filename-2x});
+    }
+  }
+
+}
