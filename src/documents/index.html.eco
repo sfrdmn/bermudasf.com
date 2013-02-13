@@ -8,7 +8,7 @@ about: |
   Aesthetic helvetica meggings, wayfarers lo-fi tofu pour-over direct trade. Pop-up deep v mcsweeney's ethnic, four loko irony neutra stumptown disrupt craft beer american apparel vice yr. Portland pour-over fingerstache brunch artisan PBR, blue bottle salvia gentrify scenester helvetica yr leggings mixtape. Fashion axe cosby sweater cardigan, kale chips mumblecore
   </p>
 
-ordering: >
+ordering: |
   <p>
   Kogi bicycle rights etsy mcsweeney's fingerstache single-origin coffee aesthetic next level freegan. Fingerstache tousled quinoa aesthetic deep v. Wolf retro semiotics occupy cred, mlkshk meggings try-hard. Odd future messenger bag beard, semiotics freegan farm-to-table gluten-free marfa iphone master cleanse +1 banksy polaroid.
   </p>
@@ -17,7 +17,7 @@ categories:
   - name: Rucksack
     items:
       - id: RS-01
-        description: >
+        description: |
           meh okay what
         price: $125
         low_res:
@@ -55,34 +55,38 @@ categories:
 
   <%= nav() %>
 
-  <section id="info" class="about">
-    <h1>About</h1>
-    <div>
-      <%- @document.meta.about %>
-    </div>
-  </section>
-
-  <section class="ordering">
-    <h1>Ordering information</h1>
-    <div>
-      <%- @document.meta.ordering %>
-    </div>
-  </section>
-
-  <% for category, i in @document.meta.categories: %>
-    <section id="<%- if i == 0 then 'shop' %>">
-      <h1><%- category.name %></h1>
-      <% for item in category.items: %>
-        <div class="item">
-          <ul class="low-res">
-            <% for path in item.low_res: %>
-              <li><img src="<%- @document.meta.path + path %>"></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
+  <section id="info">
+    <section class="about">
+      <h1 class="zagged">About</h1>
+      <div>
+        <%- @document.meta.about %>
+      </div>
     </section>
-  <% end %>
+
+    <section class="ordering">
+      <h1 class="zagged">Ordering information</h1>
+      <div>
+        <%- @document.meta.ordering %>
+      </div>
+    </section>
+  </section>
+
+  <section id="shop">
+    <% for category, i in @document.meta.categories: %>
+      <section>
+        <h1 class="zagged"><%- category.name %></h1>
+        <% for item in category.items: %>
+          <div class="item">
+            <ul class="low-res">
+              <% for path in item.low_res: %>
+                <li><img src="<%- @document.meta.path + path %>"></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </section>
+    <% end %>
+  </section>
 
 </div>
 
@@ -93,40 +97,3 @@ categories:
     </li>
   </ul>
 </footer>
-
-<script type="text/javascript">
-  var $header = $('body > header');
-  var $nav = $header.children('nav');
-  var navHeight = $nav.height();
-  var fixedOffset = 33;
-  var isFixed = true;
-  window.addEventListener('scroll', function() {
-    var bbox = $header[0].getBoundingClientRect();
-    var offset = bbox.bottom - navHeight;
-    if (offset <= fixedOffset) {
-      isFixed = false;
-      var delta = fixedOffset - offset;
-      $nav.css({'bottom': -delta})
-    } else if (!isFixed) {
-      isFixed = true;
-      $nav.css({'bottom': 0});
-    }
-  });
- /* var $header = $('body > header');
-  var $nav = $header.children('nav');
-  var navHeight = $nav.height();
-  var fixedOffset = 33;
-  var isFixed = false;
-  window.addEventListener('scroll', function() {
-    var bbox = $header[0].getBoundingClientRect();
-    var offset = bbox.bottom - navHeight;
-    console.log(bbox, offset);
-    if (offset <= fixedOffset && !isFixed) {
-      isFixed = true;
-      $nav.addClass('nav-fixed');
-    } else if (offset > fixedOffset && isFixed) {
-      isFixed = false;
-      $nav.removeClass('nav-fixed');
-    }
-  });*/
-</script>

@@ -21,10 +21,19 @@ $zag-height: 5px;
 $zag-topnav-name: "zag-white-many";
 $zag-topnav-filename: $zag-topnav-name + ".png";
 $zag-topnav-filename-2x: $zag-topnav-name + ".2x.png";
+$zag-botnav-name: "zag-black-many";
+$zag-botnav-filename: $zag-botnav-name + ".png";
+$zag-botnav-filename-2x: $zag-botnav-name + ".2x.png";
+
+$zag-spacing: 15px;
+$header-spacing: 20px;
 
 $nav-line-height: 100px;
 $nav-font-size: 66px;
-$nav-width: 300px;
+$nav-width: 250px;
+$topnav-link-color: white;
+$botnav-link-color: black;
+$botnav-link-hover: lighten($botnav-link-color, 50%);
 
 // MIXINS / MODULES
 
@@ -43,6 +52,37 @@ $nav-width: 300px;
   clear: both;
 }
 
+/*
+  .zagged must be 'position: relative' to :after the ziggies
+  all nav-big <li>s are zagged
+*/
+.zagged,
+.nav-big li {
+  position: relative;
+  top: 0;
+  display: block;
+}
+
+/*
+  actual zigzag stuff
+*/
+.zagged:after,
+.nav-big li:after {
+    background-repeat: repeat-x;
+    background-size: $zag-width $zag-height;
+    width: 250px;
+    width: 100%;
+    height: $zag-height;
+    position: absolute;
+    //bottom: -($nav-line-height / 8);
+    bottom: -$zag-spacing;
+    left: 0;
+    content: " ";
+}
+
+/*
+  the nav. it's big?
+*/
 nav.nav-big {
   font-size: $nav-font-size;
   text-align: center;
@@ -55,37 +95,17 @@ nav.nav-big {
 
   li {
     //padding-left: $nav-width / 4;
-    position: relative;
-    top: 0;
     line-height: $nav-line-height;
 
     &:first-child {
-
-      &:after {
-        //display: none;
-      }
-
       a {
         color: rgb(0, 255, 255);
         display: none;
-
         &:hover {
-
         }
       }
     }
 
-    &::after {
-      background-repeat: repeat-x;
-      background-size: $zag-width $zag-height;
-      width: 250px;
-      width: 100%;
-      height: $zag-height;
-      position: absolute;
-      bottom: -($nav-line-height / 8);
-      left: 0;
-      content: " ";
-    }
   }
 
   a {
@@ -103,19 +123,18 @@ nav.nav-big.nav-fixed {
 }
 
 // CSS
-
 html, body {
   width: 100%;
   height: 100%;
 }
 
 body {
-  //background-image: url(/static/img/checker-bg.gif);
   padding: 0;
   text-transform: lowercase;
+  background-image: url(/static/img/pink-palm-pat.jpg);
   background-color: $background-color;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
+  max-width: 1500px;
 }
 
 a {
@@ -137,8 +156,17 @@ body > footer {
 //  background-color: $background-color;
 }
 
+#info {
+  //background-color: #f2d3ea;
+}
+
+#shop {
+  //background-color: #f2e8d3;
+}
+
 header {
   position: relative;
+  max-height: 1200px;
   top: 0;
   z-index: 2;
   overflow: hidden;
@@ -177,10 +205,21 @@ header {
   top: 0;
   z-index: 1;
   height: 2000px;
-  margin-left: $nav-width;
+  //padding-left: $nav-width;
+
+  & > section {
+    padding-left: $nav-width * 1.25;
+    padding-right: $nav-width * 0.25;
+  }
+
+  & > section > section {
+    max-width: 500px;
+  }
 
   h1 {
+    padding-top: $header-spacing;
     font-size: $nav-font-size;
+    margin-bottom: $zag-spacing * 2;
   }
 
   nav.nav-big {
@@ -189,11 +228,9 @@ header {
     left: 0;
 
     a {
-      color: rgb(112, 112, 112);
-      color: rgb(255, 255, 0);
-
+      color: $botnav-link-color;
       &:hover {
-        color: black;
+        color: $botnav-link-hover;
       }
     }
   }
@@ -201,16 +238,16 @@ header {
 
 // MEDIA QUERIES
 
+// REMEMBER NORMAL DISPLAYS!!!
+
 @media screen and (min--moz-device-pixel-ratio: 2),
 screen and (-o-min-device-pixel-ratio: 2/1),
 screen and (-webkit-min-device-pixel-ratio: 2),
 screen and (min-device-pixel-ratio: 2) {
 
   header {
-    nav.nav-big {
-      li::after {
-        background-image: url(/static/img/#{$zag-topnav-filename-2x});
-      }
+    .nav-big li:after {
+      background-image: url(/static/img/#{$zag-topnav-filename-2x});
     }
 
     .logo {
@@ -218,4 +255,10 @@ screen and (min-device-pixel-ratio: 2) {
     }
   }
 
+  .main {
+    //.nav-big li:after,
+    .zagged:after {
+        background-image: url(/static/img/#{$zag-botnav-filename-2x});
+    }
+  }
 }
