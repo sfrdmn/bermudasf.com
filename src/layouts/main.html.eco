@@ -18,6 +18,9 @@ layout: default
 <footer>
   <ul>
     <li>
+      <a href="#">Source</a>
+    </li>
+    <li>
       <a href="#">Imprint</a>
     </li>
   </ul>

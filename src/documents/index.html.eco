@@ -5,31 +5,63 @@ path: /static/img/bags/
 
 about: |
   <p>
-  Aesthetic helvetica meggings, wayfarers lo-fi tofu pour-over direct trade. Pop-up deep v mcsweeney's ethnic, four loko irony neutra stumptown disrupt craft beer american apparel vice yr. Portland pour-over fingerstache brunch artisan PBR, blue bottle salvia gentrify scenester helvetica yr leggings mixtape. Fashion axe cosby sweater cardigan, kale chips mumblecore
+    Bermuda SF. We're a bag company! In San Francisco...
+  </p>
+  <p>
+	Hella eco-friendly. Using recycled/reclaimed materials. We're open to custom orders.
+	Have a special request? Cool. Let's do it.
   </p>
 
 ordering: |
   <p>
-  Kogi bicycle rights etsy mcsweeney's fingerstache single-origin coffee aesthetic next level freegan. Fingerstache tousled quinoa aesthetic deep v. Wolf retro semiotics occupy cred, mlkshk meggings try-hard. Odd future messenger bag beard, semiotics freegan farm-to-table gluten-free marfa iphone master cleanse +1 banksy polaroid.
+    To order, send an email to <a href="mailto:bermudasf@gmail.com">bermudasf@gmail.com</a>.
+    Please specify the item id and include whether you want anything customized.
+  </p>
+  <p>
+    Payment can be made over Paypal. If you want something shipped to you, please include
+    your address and we'll work out the shipping cost.
+    If you're local and you want to pay cash, we can work that out too.
   </p>
 
 categories:
   - name: Rucksack
     items:
-      - id: RS-01
+      - id: BSF-01
         description: |
           meh okay what
+        price: $165
+        low_res:
+          - 8-ruck-P.jpg
+          - 1-ruck-P.jpg
+          - 2-ruck-P.jpg
+          - 3-ruck-P.jpg
+          - 4-ruck-P.jpg
+          - 5-ruck-P.jpg
+          - 6-ruck-P.jpg
+          - 7-ruck-P.jpg
+  - name: Rolltop
+    items:
+      - id: BSF-02
+        description: |
+          yes sir
+        price: $187
+        low_res:
+          - 8-rt-L.jpg
+          - 1-rt-L.jpg
+          - 2-rt-L.jpg
+          - 3-rt-L.jpg
+          - 4-rt-L.jpg
+          - 5-rt-L.jpg
+          - 6-rt-L.jpg
+          - 7-rt-L.jpg
+  - name: Custom
+    items:
+      - id: CUS-01
+        description: |
+          yes sir
         price: $125
         low_res:
-          - bag01.jpg
-          - bag02.jpg
-          - bag03.jpg
-          - bag04.jpg
-          - bag05.jpg
-        high_res:
-          - one
-          - two
-          - three
+          - 1-cust-tramp.jpg
 ---
 
 <!-- Nav widget -->
@@ -37,9 +69,8 @@ categories:
 <% nav = () => %>
   <nav class="nav-big">
     <ul class="unstyled">
-      <li><a href="#home">BermudaSF</a></li>
-      <li><a href="#info">Info</a></li>
-      <li><a href="#shop">Shop</a></li>
+      <li><a data-id="info" href="#info">About</a></li>
+      <li><a data-id="shop" href="#shop">Shop</a></li>
     </ul>
   </nav>
 <% end %>
@@ -47,24 +78,29 @@ categories:
 <!-- Content -->
 
 <header>
-  <div class="logo">Bermuda SF</div>
-  <%= nav() %>
+  <div class="fb-like-box" data-href="http://www.bermudasf.com" data-width="50" data-show-faces="false" data-stream="false" data-header="false"></div>
+  <aside>
+    <div class="logo">Bermuda SF</div>
+    <%= nav() %>
+  </aside>
 </header>
 
 <div class="main" role="main">
 
-  <%= nav() %>
+  <div class="nav-container">
+    <%= nav() %>
+  </div>
 
   <section id="info">
     <section class="about">
-      <h1 class="zagged">About</h1>
+      <h2 class="zagged">Info</h2>
       <div>
         <%- @document.meta.about %>
       </div>
     </section>
 
     <section class="ordering">
-      <h1 class="zagged">Ordering information</h1>
+      <h2 class="zagged">Ordering</h2>
       <div>
         <%- @document.meta.ordering %>
       </div>
@@ -74,7 +110,7 @@ categories:
   <section id="shop">
     <% for category, i in @document.meta.categories: %>
       <section>
-        <h1 class="zagged"><%- category.name %></h1>
+        <h2 class="zagged"><%- category.name %></h2>
         <% for item in category.items: %>
           <div class="item">
             <ul class="low-res">
@@ -82,6 +118,11 @@ categories:
                 <li><img src="<%- @document.meta.path + path %>"></li>
               <% end %>
             </ul>
+            <aside class="item-info">
+              <div class="description"><%- item.description %></div>
+              <div class="product-id"><%- item.id %></div>
+              <div class="price"><%- item.price %></div>
+            </aside>
           </div>
         <% end %>
       </section>
@@ -93,7 +134,20 @@ categories:
 <footer>
   <ul>
     <li>
+      <a href="#">Source</a>
+    </li>
+    <li>
       <a href="#">Imprint</a>
     </li>
   </ul>
 </footer>
+
+<aside class="imprint">
+  <ul>
+    <li>
+      Site designed by <a href="www.seanfridman.com">Sean Fridman</a>
+    </li>
+    <li>
+      Special thanks to <a href="www.kristinaschneider.com">Kristina Schneider</a>
+    </li>
+</aside>
