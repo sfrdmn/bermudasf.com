@@ -1,0 +1,589 @@
+@import "compass/reset";
+@import "compass/css3";
+
+/* CONFIG */
+
+$background-color: white;
+$section-heading-font-size: 36px;
+
+$header-background-image: url(/static/img/jon-bg-drink.jpg);
+$header-background-image: url(/static/img/sam-bg-color-fixed.jpg);
+
+$gutter: 3%;
+$gutter-main: 28px;
+$left-margin: $gutter;
+$left-column: 30%;
+$right-column: 65%;
+$sub-column: 75%;
+
+$link-color: #b39a9d;
+$link-color: #444;
+$pink-color: #ffdce0;
+
+$logo-name: "logo-white";
+$logo-filename: $logo-name + ".png";
+$logo-filename-2x: $logo-name + ".2x.png";
+$logo-width-desktop: 301px * .75;
+$logo-height-desktop: 227px * .75;
+$logo-width-mobile: $logo-width-desktop * .75;
+$logo-height-mobile: $logo-height-desktop * .25;
+
+$zag-width: 95px;
+$zag-height: 8px;
+$zag-topnav-name: "zag-white-thick";
+$zag-topnav-filename: $zag-topnav-name + ".png";
+$zag-topnav-filename-2x: $zag-topnav-name + ".2x.png";
+$zag-botnav-name: "zag-black-thick";
+$zag-botnav-filename: $zag-botnav-name + ".png";
+$zag-botnav-filename-2x: $zag-botnav-name + ".2x.png";
+
+$zag-spacing: 15px;
+$header-spacing: 20px;
+
+$nav-line-height: 2.5em;
+$nav-font-size: 2.5em;
+$nav-font-weight: 500;
+$nav-fixed-top: 34px;
+$nav-width: 250px;
+$nav-link-border: 4px;
+$topnav-link-color: white;
+$botnav-link-color: black;
+$botnav-link-hover: lighten($botnav-link-color, 50%);
+
+$baghover-cursor-right: '/static/img/point-right.png';
+$baghover-cursor-left: '/static/img/point-left.png';
+
+$h-family: "futura-pt", "proxima-nova-alt", "brandon-grotesque", Helvetica, sans-serif;
+$h-weight: 500;
+$h-font-size: $nav-font-size;
+
+// MIXINS / MODULES
+
+.clearfix {
+  *zoom: 1;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+@mixin zag {
+    background-repeat: repeat-x;
+    background-size: $zag-width $zag-height;
+    width: 100%;
+    height: $zag-height;
+    position: absolute;
+    left: 0;
+    content: " ";
+}
+
+/*
+  .zagged must be 'position: relative' to :after the ziggies
+  all nav-big <li>s are zagged
+*/
+.zagged,
+.nav-big li {
+  position: relative;
+  top: 0;
+  display: block;
+}
+
+/*
+  actual zigzag stuff
+*/
+.zagged:after,
+.nav-big li:after {
+    @include zag;
+    bottom: -$zag-height;
+}
+
+/*
+  the nav. it's big?
+*/
+nav.nav-big {
+  font-size: $nav-font-size;
+  text-align: center;
+  width: $nav-width;
+
+
+  ul {
+    margin-bottom: $nav-font-size / 2;
+  }
+
+  li {
+    font-weight: $nav-font-weight;
+    line-height: $nav-line-height;
+
+    &:first-child:before {
+      @include zag;
+    }
+  }
+
+  a {
+    display: inline;
+    color: white;
+    position: relative;
+    top: $zag-height / 2;
+
+    &:hover {
+      color: white;
+      text-decoration: none;
+      border-bottom: $nav-link-border solid $topnav-link-color;;
+    }
+  }
+}
+
+// CSS
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+body {
+  padding: 0;
+  background-color: $background-color;
+  //max-width: 1500px;
+  line-height: 1.25em;
+  font-family: $h-family;
+  font-size: 87.5%; /* 14px */
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: darken($link-color, 50%);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+h1, h2, h3,
+.nav-big li {
+  font-family: $h-family;
+  font-weight: $h-weight;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+
+body > header,
+body > .main,
+body > footer {
+}
+
+header {
+  //overflow: hidden;
+  position: relative;
+  top: 0;
+  z-index: 2;
+  background: $header-background-image no-repeat center center scroll;
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  .fb-like-box {
+    position: absolute;
+    right: 0;
+  }
+
+  .nav-big li:first-child:before,
+  .nav-big li:after {
+    background-image: url(/static/img/#{$zag-topnav-filename});
+  }
+
+  aside {
+    height: 100%;
+    min-width: $nav-width;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .logo {
+    background-image: url(/static/img/#{$logo-filename});
+    background-size: $logo-width-desktop $logo-height-desktop;
+    width: $logo-width-desktop;
+    height: $logo-height-desktop;
+    text-indent: -9999px;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: $gutter * 2;
+  }
+
+  nav {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -125px;
+  }
+}
+
+body {
+
+  & > section {
+    z-index: 1;
+    padding: 0 $gutter;
+    padding: $gutter-main;
+    min-height: 100%;
+  }
+
+  & > section > section {
+    margin-bottom: $gutter-main;
+  }
+
+  & > section h1,
+  & > section h2 {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  & > .nav-container {
+    display: none;
+  }
+
+  & > .nav-container .nav-big li:first-child:before,
+  & > .nav-container .nav-big li:after {
+      //background-image: url(/static/img/#{$zag-botnav-filename});
+  }
+
+  .post {
+    margin: 0 auto;
+    width: $sub-column;
+    margin-bottom: 2em;
+
+    h2 {
+      margin-bottom: 0.75em;
+      padding-bottom: 0.5em;
+    }
+
+  }
+
+  section .description {
+    font-size: 1.5em;
+    line-height: 1.3em;
+    text-align: justify;
+  }
+
+  #shop {
+    .zagged:after {
+        background-image: url(/static/img/#{$zag-botnav-filename});
+    }
+
+    section .description.bag-description {
+      width: 50%;
+      //padding: 0 1em;
+      float: left;
+    }
+
+    .post aside {
+      width: 50%;
+      float: right;
+      text-align: right;
+    }
+
+    .item-info {
+      overflow: hidden;
+      text-align: center;
+      position: relative;
+      top: 0;
+      z-index: 5;
+
+      .description {
+        margin-bottom: $gutter-main;
+        display: none !important;
+      }
+
+      .tag {
+        display: inline-block;
+        border: 4px solid black;
+        padding: 0.25em;
+        margin-left: 1em;
+        margin-bottom: 1em;
+        min-width: 40px;
+        text-align: center;
+      }
+
+      .tag.buy {
+        background-color: black;
+        color: white;
+      }
+    }
+
+    .item {
+      position: relative;
+      top: 0;
+
+      .low-res {
+        text-align: center;
+        z-index: 4;
+
+        &.hover-left:hover {
+          cursor: url($baghover-cursor-left), auto;
+        }
+
+        &.hover-right:hover {
+          cursor: url($baghover-cursor-right), auto;
+        }
+
+        li {
+          display: none;
+        }
+
+        li:first-child {
+          display: block;
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+          max-width: 500px;
+          margin: 0 auto;
+
+          -webkit-touch-callout: none;
+          -webkit-user-select: none;
+          -khtml-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+      }
+    }
+  }
+
+  #info {
+    background-color: $pink-color;
+    //background-image:  url('/static/img/pink-palm-pat.jpg');
+
+    .zagged:after {
+        background-image: url(/static/img/#{$zag-botnav-filename});
+    }
+
+    .about {
+      //background-color: #0F0;
+    }
+
+    .ordering {
+      //background-color: #00F;
+    }
+
+    & > section {
+//      padding: 2em;
+//      color: #ffdce0;
+//      color: white;
+//      background-color: white;
+    }
+
+    p {
+      text-align: justify;
+      margin-bottom: $gutter-main / 2;
+    }
+  }
+
+  #shop {
+    background-color: white;
+  }
+
+  h2 {
+    font-size: $h-font-size;
+    //margin-bottom: $h-font-size * 0.5;
+  }
+}
+
+footer {
+  background-color: white;
+  overflow: none;
+  padding: 1px;
+  font-size: 12px;
+  text-align: right;
+  color: black;
+  border-bottom: 5px solid black;
+
+  .peace {
+   font-size: 2em;
+  }
+
+  a {
+    color: black;
+  }
+
+  ul {
+    margin-top: 1em;
+
+    li {
+      display: inline-block;
+      margin-right: 1em;
+    }
+  }
+}
+
+.imprint {
+  position: fixed;
+  left: 10px;
+  right: 10px;
+  top: 10px;
+  bottom: 10px;
+  display: none;
+  padding: 2em;
+  font-size: 1.5em;
+  line-height: 1.5em;
+
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 99999;
+  color: white;
+
+  a.close {
+    position: absolute;
+    line-height: 1em;
+    top: 1em;
+    right: 1em;
+    color: white;
+
+    &:hover {
+      border-bottom-width: 0px;
+    }
+  }
+
+  div {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  a {
+    color: $pink-color;
+
+    &:hover {
+      border-bottom: 2px solid $pink-color;
+    }
+  }
+}
+
+.imprint.active {
+  display: block;
+}
+
+#scroll-to-top {
+  position: fixed; 
+  top: 10px;
+  left: 10px;
+  font-size: 14px;
+  line-height: 14px;
+  
+  &:hover {
+    text-decoration: none;
+    border-bottom-width: 0 !important;
+    font-style: italic;
+  }
+}
+      
+
+// MEDIA QUERIES
+
+@media only screen
+and (min-width : 768px) {
+
+	header {
+    max-height: 1200px;
+
+    aside {
+      position: relative;
+      top: 0;
+      width: $left-column;
+      margin-left: $left-margin;
+    }
+
+    .logo {
+      margin-top: $gutter * 6;
+    }
+  }
+
+  body {
+		font-size: 100%;
+    position: relative;
+    top: 0;
+
+    & > section {
+      padding-left: $left-column + $gutter * 2;
+      padding-left: $left-column + $gutter;
+      padding-right: $gutter;
+    }
+
+    & > section > section {
+      max-width: 800px;
+    }
+
+    & > .nav-container {
+      display: block;
+      width: $left-column;
+      position: fixed;
+      top: $nav-fixed-top;
+      left: $left-margin;
+      text-align: center;
+
+      nav.nav-big {
+        margin: 0 auto;
+      }
+
+      a {
+        color: $botnav-link-color;
+
+        &:hover {
+          color: $botnav-link-color;
+          border-bottom: $nav-link-border solid $botnav-link-color;;
+        }
+      }
+    }
+
+    .imprint {
+      right: 50%;
+    }
+
+  }
+}
+
+// REMEMBER NORMAL DISPLAYS!!!
+
+@media screen and (min--moz-device-pixel-ratio: 2),
+screen and (-o-min-device-pixel-ratio: 2/1),
+screen and (-webkit-min-device-pixel-ratio: 2),
+screen and (min-device-pixel-ratio: 2) {
+
+  header {
+    .nav-big li:first-child:before,
+    .nav-big li:after {
+      background-image: url(/static/img/#{$zag-topnav-filename-2x});
+    }
+
+    .logo {
+      background-image: url(/static/img/#{$logo-filename-2x});
+      width: $logo-width-desktop;
+      height: $logo-height-desktop;
+    }
+  }
+
+  .nav-big li:first-child:before,
+  .nav-big li:after {
+      background-image: url(/static/img/#{$zag-botnav-filename-2x});
+  }
+
+  #info {
+    .zagged:after {
+        background-image: url(/static/img/#{$zag-botnav-filename-2x});
+    }
+  }
+
+  #shop {
+    .zagged:after {
+        background-image: url(/static/img/#{$zag-botnav-filename-2x});
+    }
+  }
+}

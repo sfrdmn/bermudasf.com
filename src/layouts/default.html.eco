@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+	<title><%= @getPreparedTitle() %></title>
+	<meta name="description" content="<%= @getPreparedDescription() %>" />
+	<meta name="keywords" content="<%= @getPreparedKeywords() %>" />
+	<meta name="viewport" content="width=device-width" />
+
+  <link type="text/css" rel="stylesheet" href="/static/build/css/main.css">
+
+  <script type="text/javascript" src="//use.typekit.net/ovk1dzs.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript" src="/static/vendor/js/modernizr.custom.min.js"></script>
+</head>
+<body>
+  <div id="fb-root"></div>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=133544936710305";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <%- @content %>
+
+  <script type="text/javascript">
+    Modernizr.load({
+      test: Modernizr.touch,
+      yep: [
+        '/static/vendor/js/zepto.min.js',
+        '/static/vendor/js/swipe.min.js'
+      ],
+      nope: [
+       '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
+       '/static/vendor/js/jquery.scrollTo.min.js'
+      ],
+      complete: function() {
+        if (!window['jQuery']) {
+          Modernizr.load('/static/vendor/js/jquery.min.js');
+        }
+        Modernizr.load('/static/build/js/app.js');
+      }
+    });
+  </script>
+
+	<script type="text/javascript">
+		var _gaq=[['_setAccount',''],['_trackPageview']];
+		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+		g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s)}(document,'script'));
+	</script>
+</body>
+</html>
