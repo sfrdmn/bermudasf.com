@@ -13,12 +13,11 @@
 	<meta name="keywords" content="<%= @getPreparedKeywords() %>" />
 	<meta name="viewport" content="width=device-width" />
 
-  <link type="text/css" rel="stylesheet" href="/static/css/main.css">
-  <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
-  <script src="/static/js/jquery.scrollTo.min.js"></script>
-  <script defer="defer" src="/static/js/vendor/modernizr.js"></script>
+  <link type="text/css" rel="stylesheet" href="/static/build/css/main.css">
+
   <script type="text/javascript" src="//use.typekit.net/ovk1dzs.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript" src="/static/vendor/js/modernizr.custom.min.js"></script>
 </head>
 <body>
   <div id="fb-root"></div>
@@ -34,7 +33,25 @@
 
   <%- @content %>
 
-  <script type="text/javascript" src="/static/js/main.js"></script>
+  <script type="text/javascript">
+    Modernizr.load({
+      test: Modernizr.touch,
+      yep: [
+        '/static/vendor/js/zepto.min.js',
+        '/static/vendor/js/swipe.min.js'
+      ],
+      nope: [
+       '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
+       '/static/vendor/js/jquery.scrollTo.min.js'
+      ],
+      complete: function() {
+        if (!window['jQuery']) {
+          Modernizr.load('/static/vendor/js/jquery.min.js');
+        }
+        Modernizr.load('/static/build/js/app.js');
+      }
+    });
+  </script>
 
 	<script type="text/javascript">
 		var _gaq=[['_setAccount',''],['_trackPageview']];

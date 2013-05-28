@@ -28,7 +28,8 @@ categories:
     items:
       - id: BSF-01
         description: |
-          meh okay what
+          This is our rucksack. It's da da da dada. Bla bla
+          It is a very good sack. Yes.
         price: $165
         low_res:
           - 8-ruck-P.jpg
@@ -43,7 +44,8 @@ categories:
     items:
       - id: BSF-02
         description: |
-          yes sir
+          This is our rolltop. With the roll and
+          the top and the back and the pack good buy!
         price: $187
         low_res:
           - 8-rt-L.jpg
@@ -69,15 +71,15 @@ categories:
 <% nav = () => %>
   <nav class="nav-big">
     <ul class="unstyled">
-      <li><a data-id="info" href="#info">About</a></li>
-      <li><a data-id="shop" href="#shop">Shop</a></li>
+      <li><a class="nav-link info" data-id="info" href="#info">About</a></li>
+      <li><a class="nav-link shop" data-id="shop" href="#shop">Shop</a></li>
     </ul>
   </nav>
 <% end %>
 
 <!-- Content -->
 
-<header>
+<header id="top">
   <div class="fb-like-box" data-href="http://www.bermudasf.com" data-width="50" data-show-faces="false" data-stream="false" data-header="false"></div>
   <aside>
     <div class="logo">Bermuda SF</div>
@@ -85,51 +87,54 @@ categories:
   </aside>
 </header>
 
-<div class="main" role="main">
+<a id="scroll-to-top" href="#top" data-id="top">(Scroll to top)</a>
 
-  <div class="nav-container">
-    <%= nav() %>
-  </div>
-
-  <section id="info">
-    <section class="about">
-      <h2 class="zagged">Info</h2>
-      <div>
-        <%- @document.meta.about %>
-      </div>
-    </section>
-
-    <section class="ordering">
-      <h2 class="zagged">Ordering</h2>
-      <div>
-        <%- @document.meta.ordering %>
-      </div>
-    </section>
-  </section>
-
-  <section id="shop">
-    <% for category, i in @document.meta.categories: %>
-      <section>
-        <h2 class="zagged"><%- category.name %></h2>
-        <% for item in category.items: %>
-          <div class="item">
-            <ul class="low-res">
-              <% for path in item.low_res: %>
-                <li><img src="<%- @document.meta.path + path %>"></li>
-              <% end %>
-            </ul>
-            <aside class="item-info">
-              <div class="description"><%- item.description %></div>
-              <div class="product-id"><%- item.id %></div>
-              <div class="price"><%- item.price %></div>
-            </aside>
-          </div>
-        <% end %>
-      </section>
-    <% end %>
-  </section>
-
+<div class="nav-container">
+  <%= nav() %>
 </div>
+
+<section id="info">
+  <section class="post about">
+    <h2 class="zagged">Info</h2>
+    <div class="description">
+      <%- @document.meta.about %>
+    </div>
+  </section>
+
+  <section class="post ordering">
+    <h2 class="zagged">Ordering</h2>
+    <div class="description">
+      <%- @document.meta.ordering %>
+    </div>
+  </section>
+</section>
+
+<section id="shop">
+  <% for category, i in @document.meta.categories: %>
+    <section class="post">
+      <h2 class="zagged"><%- category.name %></h2>
+      <% for item in category.items: %>
+        <div class="description bag-description">
+          <%- item.description %>
+        </div>
+        <aside class="item-info">
+          <div class="tag description"><%- item.description %></div>
+          <div class="tag product-id"><%- item.id %></div>
+          <div class="tag price"><%- item.price %></div>
+          <div class="tag buy">Order</div>
+        </aside>
+        <div class="clearfix"></div>
+        <div class="item">
+          <ul class="low-res">
+            <% for path in item.low_res: %>
+              <li><img draggable="false" src="<%- @document.meta.path + path %>"></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </section>
+  <% end %>
+</section>
 
 <footer>
   <ul>
@@ -137,17 +142,20 @@ categories:
       <a href="#">Source</a>
     </li>
     <li>
-      <a href="#">Imprint</a>
+      <a href="#" id="imprint-link">Imprint</a>
+    </li>
+    <li>
+      <div class="peace">✌</div>
     </li>
   </ul>
 </footer>
 
 <aside class="imprint">
-  <ul>
-    <li>
-      Site designed by <a href="www.seanfridman.com">Sean Fridman</a>
-    </li>
-    <li>
-      Special thanks to <a href="www.kristinaschneider.com">Kristina Schneider</a>
-    </li>
+  <a href="#" class="close">X</a>
+  <div>
+      Site designed by <a href="http://www.seanfridman.com">Sean Fridman</a> using
+      <a href="http://docpad.org/">Docpad</a></li>,
+      <a href="http://sass-lang.com/">SASS</a></li>,
+      and a little help from <a href="http://www.kristinaschneider.com">Kristina Schneider</a>
+  </div>
 </aside>
