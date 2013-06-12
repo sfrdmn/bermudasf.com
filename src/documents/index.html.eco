@@ -129,7 +129,7 @@ categories:
 
 <section id="shop">
   <% for category, i in @document.meta.categories: %>
-    <section class="post">
+    <section class="post <%- category.name.toLowerCase() %>">
       <h2 class="zagged"><%- category.name %></h2>
       <% for item in category.items: %>
         <div class="description bag-description">

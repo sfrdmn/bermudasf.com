@@ -7,7 +7,7 @@ $background-color: white;
 $section-heading-font-size: 36px;
 
 $header-background-image: url(/static/img/jon-bg-drink.jpg);
-$header-background-image: url(/static/img/sam-bg-color-fixed.jpg);
+$header-background-image: url(/static/img/sam-bg-color-lowqual.jpg);
 
 $gutter: 3%;
 $gutter-main: 28px;
@@ -189,8 +189,10 @@ header {
   position: relative;
   top: 0;
   z-index: 2;
+  background-color: black;
   background: $header-background-image no-repeat center center scroll;
   height: 100%;
+  width: 100%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -198,7 +200,7 @@ header {
 
   .fb-like-box {
     position: absolute;
-    right: 0;
+    right: 50px;
   }
 
   .nav-big li:first-child:before,
@@ -263,7 +265,6 @@ body {
   .post {
     margin: 0 auto;
     width: $sub-column;
-    margin-bottom: 2em;
 
     h2 {
       margin-bottom: 0.75em;
@@ -339,7 +340,7 @@ body {
     .item {
       position: relative;
       top: 0;
-      margin-bottom: 2em;
+      margin-bottom: 3em;
 
       .low-res {
         text-align: center;
