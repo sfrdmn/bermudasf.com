@@ -95,6 +95,8 @@ docpadConfig = {
 	plugins:
 		sass:
 			compass: true
+
+  watchOptions: preferredMethods: ['watchFile','watch']
 }
 
 # Export our DocPad Configuration

@@ -26,11 +26,11 @@ ordering: |
 categories:
   - name: Rucksack
     items:
-      - id: BSF-01
+      - id: Rucksack
         description: |
           This is our rucksack. It's da da da dada. Bla bla
           It is a very good sack. Yes.
-        price: $165
+        price: 150
         low_res:
           - 8-ruck-P.jpg
           - 1-ruck-P.jpg
@@ -42,26 +42,38 @@ categories:
           - 7-ruck-P.jpg
   - name: Rolltop
     items:
-      - id: BSF-02
+      - id: Rolltop
         description: |
           This is our rolltop. With the roll and
           the top and the back and the pack good buy!
-        price: $187
+        price: 150
         low_res:
-          - 8-rt-L.jpg
-          - 1-rt-L.jpg
-          - 2-rt-L.jpg
-          - 3-rt-L.jpg
-          - 4-rt-L.jpg
-          - 5-rt-L.jpg
-          - 6-rt-L.jpg
-          - 7-rt-L.jpg
+          - roll-1.jpg
+          - roll-8.jpg
+          - roll-7.jpg
+          - roll-6.jpg
+          - roll-5.jpg
+          - roll-4.jpg
+          - roll-3.jpg
+          - roll-2.jpg
   - name: Custom
     items:
-      - id: CUS-01
+      - id: Fox Suede Bag
+        description: |
+          mmmmhmmm
+        price: 125
+        low_res:
+          - fox.jpg
+      - id: Pinted
+        description: |
+          pinted?
+        price: 125
+        low_res:
+          - pint.jpg
+      - id: Tramp Bag
         description: |
           yes sir
-        price: $125
+        price: 125
         low_res:
           - 1-cust-tramp.jpg
 ---
@@ -118,10 +130,24 @@ categories:
           <%- item.description %>
         </div>
         <aside class="item-info">
-          <div class="tag description"><%- item.description %></div>
-          <div class="tag product-id"><%- item.id %></div>
-          <div class="tag price"><%- item.price %></div>
-          <div class="tag buy">Order</div>
+          <div class="tag price">$<%- item.price %></div>
+          <a class="tag btn details">View details</div>
+          <a href="mailto:bermudasf@gmail.com?subject=<%- encodeURIComponent(item.id + ' Order') %>&body=<%- encodeURIComponent('Order for: ' + item.id + '\n\n' + 'How we gunna do this? Please provide all details needed to get you your bag!') %>"
+              class="tag btn order-email">
+            Order by email
+          </a>
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="35YSFN7VHS2QC">
+            <input type="hidden" name="lc" value="US">
+            <input type="hidden" name="item_name" value="<%- item.id %>">
+            <input type="hidden" name="amount" value="<%- item.price %>">
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="hidden" name="button_subtype" value="services">
+            <input type="hidden" name="shipping" value="12.95">
+            <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted">
+            <button type="submit" class="tag btn order">Order by PayPal</button>
+          </form>
         </aside>
         <div class="clearfix"></div>
         <div class="item">
