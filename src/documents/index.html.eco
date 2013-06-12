@@ -64,12 +64,18 @@ categories:
         price: 125
         low_res:
           - fox.jpg
-      - id: Pinted
+      - id: Pinted Bag
         description: |
           pinted?
         price: 125
         low_res:
           - pint.jpg
+      - id: Poncho Denim Bag
+        description: |
+         cool poncho bag
+        price: 125
+        low_res:
+          - ponchodenim.jpg
       - id: Tramp Bag
         description: |
           yes sir
@@ -131,7 +137,7 @@ categories:
         </div>
         <aside class="item-info">
           <div class="tag price">$<%- item.price %></div>
-          <a class="tag btn details">View details</div>
+          <!--<a class="tag btn details">View details</div>-->
           <a href="mailto:bermudasf@gmail.com?subject=<%- encodeURIComponent(item.id + ' Order') %>&body=<%- encodeURIComponent('Order for: ' + item.id + '\n\n' + 'How we gunna do this? Please provide all details needed to get you your bag!') %>"
               class="tag btn order-email">
             Order by email
@@ -165,7 +171,7 @@ categories:
 <footer>
   <ul>
     <li>
-      <a href="#">Source</a>
+      <a href="https://github.com/sfrdmn/bermudasf.com">Source</a>
     </li>
     <li>
       <a href="#" id="imprint-link">Imprint</a>
