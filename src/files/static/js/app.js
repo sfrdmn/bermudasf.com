@@ -95,11 +95,11 @@ var MainView = Base.extend({
   },
 
   initializeNavHighlights: function() {
-    var $window = $(window);
+    /*var $window = $(window);
     var $nav = $('.nav-container nav');
     var aboutOffset = $('#info').offset().top;
     var shopOffset = $('#shop').offset().top;
-    var activeLink = $('.nav-link.info');;
+    var activeLink = $('.nav-link.info');
 
     function onScroll(e) {
       if ($window.scrollTop() > aboutOffset) {
@@ -107,7 +107,7 @@ var MainView = Base.extend({
       } else if ($window.scrollTop() > shopOffset) {
 
       }
-    }
+    }*/
   },
 
   initializeNavEffect: function() {
@@ -148,7 +148,7 @@ var DesktopView = MainView.extend({
 
   initialize: function(el) {
     MainView.prototype.initialize.apply(this, arguments);
-    this.$nav.delegate('a', 'click', bind(this.onClickNav, this));
+    this.$nav.delegate('a.nav-link', 'click', bind(this.onClickNav, this));
     $('#scroll-to-top').bind('click', bind(this.onClickNav, this));
   },
 
