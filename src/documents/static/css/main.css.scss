@@ -44,7 +44,7 @@ $zag-botnav-filename-2x: $zag-botnav-name + ".2x.png";
 $zag-spacing: 15px;
 $header-spacing: 20px;
 
-$nav-line-height: 2.5em;
+$nav-line-height: 2.3em;
 $nav-font-size: 2.5em;
 $nav-font-weight: 500;
 $nav-fixed-top: 34px;
@@ -152,9 +152,10 @@ html, body {
 }
 
 body {
+  position: relative;
+  top: 0;
   padding: 0;
   background-color: $background-color;
-  //max-width: 1500px;
   line-height: 1.25em;
   font-family: $h-family;
   font-size: 87.5%; /* 14px */
@@ -209,6 +210,8 @@ header {
   }
 
   aside {
+    position: relative;
+    top: 0;
     height: 100%;
     min-width: $nav-width;
     overflow: hidden;
@@ -255,6 +258,7 @@ body {
 
   & > .nav-container {
     display: none;
+    position: fixed;
   }
 
   & > .nav-container .nav-big li:first-child:before,
@@ -263,7 +267,7 @@ body {
   }
 
   .post {
-    margin: 0 auto;
+    margin: 0 auto 4em auto;
     width: $sub-column;
 
     h2 {
@@ -274,7 +278,7 @@ body {
   }
 
   section .description {
-    font-size: 1.5em;
+    font-size: 1.4em;
     line-height: 1.3em;
     text-align: justify;
   }
@@ -285,15 +289,16 @@ body {
     }
 
     section .description.bag-description {
-      width: 50%;
-      //padding: 0 1em;
       float: left;
     }
 
+    .description.bag-description, .item-info {
+      margin-bottom: 1em;
+    }
+
     .post aside {
-      width: 50%;
       float: right;
-      text-align: right;
+      text-align: center;
     }
 
     .item-info {
@@ -340,7 +345,7 @@ body {
     .item {
       position: relative;
       top: 0;
-      margin-bottom: 3em;
+      margin-top: 3em;
 
       .low-res {
         text-align: center;
@@ -514,8 +519,6 @@ and (min-width : 768px) {
     max-height: 1200px;
 
     aside {
-      position: relative;
-      top: 0;
       width: $left-column;
       margin-left: $left-margin;
     }
@@ -526,9 +529,14 @@ and (min-width : 768px) {
   }
 
   body {
-		font-size: 100%;
-    position: relative;
-    top: 0;
+
+    section .description.bag-description {
+      width: 65%;
+    }
+
+    section .item-info {
+      width: 30%;
+    }
 
     & > section {
       padding-left: $left-column + $gutter * 2;
@@ -543,7 +551,6 @@ and (min-width : 768px) {
     & > .nav-container {
       display: block;
       width: $left-column;
-      position: fixed;
       top: $nav-fixed-top;
       left: $left-margin;
       text-align: center;
