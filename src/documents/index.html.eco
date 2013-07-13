@@ -31,14 +31,15 @@ categories:
           smaller zippered front pocket, two side pockets, padded back and shoulder pads.
         price: 175
         low_res:
-          - 8-ruck-P.jpg
-          - 1-ruck-P.jpg
-          - 2-ruck-P.jpg
-          - 3-ruck-P.jpg
-          - 4-ruck-P.jpg
-          - 5-ruck-P.jpg
-          - 6-ruck-P.jpg
-          - 7-ruck-P.jpg
+          - 1-ruck.jpg
+          - 8-ruck.jpg
+          - 7-ruck.jpg
+          - 6-ruck.jpg
+          - 5-ruck.jpg
+          - 4-ruck.jpg
+          - 3-ruck.jpg          
+          - 2-ruck.jpg
+
   - name: Rolltop
     items:
       - id: Rolltop
@@ -84,7 +85,7 @@ categories:
           Recycled trampoline material with faux ostrich lining and pocket.
         price: 125
         low_res:
-          - 1-cust-tramp.jpg
+          - tramp.jpg
 ---
 
 <!-- Nav widget -->
