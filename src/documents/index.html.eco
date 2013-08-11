@@ -37,7 +37,7 @@ categories:
           - 6-ruck.jpg
           - 5-ruck.jpg
           - 4-ruck.jpg
-          - 3-ruck.jpg          
+          - 3-ruck.jpg
           - 2-ruck.jpg
 
   - name: Rolltop
@@ -105,7 +105,7 @@ categories:
 <header id="top">
   <!-- <div class="fb-like-box" data-href="http://www.bermudasf.com" data-width="50" data-show-faces="false" data-stream="false" data-header="false"></div> -->
   <aside>
-    <div class="logo">Bermuda SF</div>
+    <div class="logo"></div>
     <%= nav() %>
   </aside>
 </header>
@@ -130,7 +130,7 @@ categories:
       <%- @document.meta.ordering %>
     </div>
   </section>
-</section>  
+</section>
 
 <section id="shop">
   <% for category, i in @document.meta.categories: %>

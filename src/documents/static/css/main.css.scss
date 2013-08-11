@@ -30,7 +30,7 @@ $logo-filename-2x: $logo-name + ".2x.png";
 $logo-width-desktop: 301px * .75;
 $logo-height-desktop: 227px * .75;
 $logo-width-mobile: $logo-width-desktop * .75;
-$logo-height-mobile: $logo-height-desktop * .25;
+$logo-height-mobile: $logo-height-desktop * .75;
 
 $zag-width: 95px;
 $zag-height: 8px;
@@ -158,7 +158,8 @@ body {
   background-color: $background-color;
   line-height: 1.25em;
   font-family: $h-family;
-  font-size: 87.5%; /* 14px */
+  font-size: 12px;
+  //font-size: 87.5%; /* 14px */
 }
 
 a {
@@ -219,14 +220,13 @@ header {
   }
 
   .logo {
-    background-image: url(/static/img/#{$logo-filename});
-    background-size: $logo-width-desktop $logo-height-desktop;
-    width: $logo-width-desktop;
-    height: $logo-height-desktop;
-    text-indent: -9999px;
     overflow: hidden;
     margin: 0 auto;
     margin-top: $gutter * 2;
+    background-image: url(/static/img/#{$logo-filename});
+    background-size: $logo-width-mobile $logo-height-mobile;
+    width: $logo-width-mobile;
+    height: $logo-height-mobile;
   }
 
   nav {
@@ -529,6 +529,14 @@ and (min-width : 768px) {
   }
 
   body {
+
+    font-size: 14px;
+
+    .logo {
+      background-size: $logo-width-desktop $logo-height-desktop;
+      width: $logo-width-desktop;
+      height: $logo-height-desktop;
+    }
 
     section .description.bag-description {
       width: 65%;
