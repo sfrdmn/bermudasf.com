@@ -14,6 +14,7 @@ $header-background-image: url(/static/img/long-hair.jpg);
 $header-background-image: url(dummy);
 
 $gutter: 3%;
+$gutter-mobile: 12px;
 $gutter-main: 28px;
 $left-margin: $gutter;
 $left-column: 30%;
@@ -50,6 +51,7 @@ $header-spacing: 20px;
 
 $nav-line-height: 2.3em;
 $nav-font-size: 2.5em;
+$nav-font-size-mobile: 2em;
 $nav-font-weight: 500;
 $nav-fixed-top: 34px;
 $nav-width: 250px;
@@ -116,13 +118,13 @@ $h-font-size: $nav-font-size;
   the nav. it's big?
 */
 nav.nav-big {
-  font-size: $nav-font-size;
+  font-size: $nav-font-size-mobile;
   text-align: center;
   width: $nav-width;
 
 
   ul {
-    margin-bottom: $nav-font-size / 2;
+    margin-bottom: $nav-font-size-mobile / 2;
   }
 
   li {
@@ -245,13 +247,12 @@ body {
 
   & > section {
     z-index: 1;
-    padding: 0 $gutter;
-    padding: $gutter-main;
+    padding: $gutter-mobile;
     min-height: 100%;
   }
 
   & > section > section {
-    margin-bottom: $gutter-main;
+    margin-bottom: $gutter-mobile;
   }
 
   & > section h1,
@@ -271,11 +272,11 @@ body {
   }
 
   .post {
-    margin: 0 auto 4em auto;
+    margin: 0 auto 1em auto;
     width: $sub-column;
 
     h2 {
-      margin-bottom: 0.75em;
+      margin-bottom: 0.5em;
       padding-bottom: 0.5em;
     }
 
@@ -519,6 +520,37 @@ footer {
 @media only screen
 and (min-width : 768px) {
 
+  nav.nav-big {
+    font-size: $nav-font-size;
+    width: $nav-width;
+
+    ul {
+      margin-bottom: $nav-font-size / 2;
+    }
+
+    li {
+      font-weight: $nav-font-weight;
+      line-height: $nav-line-height;
+
+      &:first-child:before {
+        @include zag;
+      }
+    }
+
+    a {
+      display: inline;
+      color: white;
+      position: relative;
+      top: $zag-height / 2;
+
+      &:hover {
+        color: white;
+        text-decoration: none;
+        border-bottom: $nav-link-border solid $topnav-link-color;
+      }
+    }
+  }
+
 	header {
     max-height: 1200px;
 
@@ -535,6 +567,26 @@ and (min-width : 768px) {
   body {
 
     font-size: 14px;
+
+    .post {
+      margin: 0 auto 4em auto;
+      width: $sub-column;
+
+      h2 {
+        margin-bottom: 0.75em;
+        padding-bottom: 0.5em;
+      }
+    }
+
+    & > section {
+      z-index: 1;
+      padding: $gutter-main;
+      min-height: 100%;
+    }
+
+    & > section > section {
+      margin-bottom: $gutter-main;
+    }
 
     .logo {
       background-size: $logo-width-desktop $logo-height-desktop;
@@ -598,30 +650,28 @@ screen and (min-device-pixel-ratio: 2) {
   header {
     .nav-big li:first-child:before,
     .nav-big li:after {
-      background-image: url(/static/img/#{$zag-topnav-filename-2x});
+      //background-image: url(/static/img/#{$zag-topnav-filename-2x});
     }
 
     .logo {
-      background-image: url(/static/img/#{$logo-filename-2x});
-      width: $logo-width-desktop;
-      height: $logo-height-desktop;
+      //background-image: url(/static/img/#{$logo-filename-2x});
     }
   }
 
   .nav-big li:first-child:before,
   .nav-big li:after {
-      background-image: url(/static/img/#{$zag-botnav-filename-2x});
+      //background-image: url(/static/img/#{$zag-botnav-filename-2x});
   }
 
   #info {
     .zagged:after {
-        background-image: url(/static/img/#{$zag-botnav-filename-2x});
+        //background-image: url(/static/img/#{$zag-botnav-filename-2x});
     }
   }
 
   #shop {
     .zagged:after {
-        background-image: url(/static/img/#{$zag-botnav-filename-2x});
+        //background-image: url(/static/img/#{$zag-botnav-filename-2x});
     }
   }
 }
