@@ -8,6 +8,10 @@ $section-heading-font-size: 36px;
 
 $header-background-image: url(/static/img/jon-bg-drink.jpg);
 $header-background-image: url(/static/img/sam-bg-color-lowqual.jpg);
+$header-background-image: url(/static/img/sam-bg-color-lowqual.jpg);
+$header-background-image: url(/static/img/cara-bag-hike.jpg);
+$header-background-image: url(/static/img/long-hair.jpg);
+$header-background-image: url(dummy);
 
 $gutter: 3%;
 $gutter-main: 28px;
@@ -132,7 +136,7 @@ nav.nav-big {
 
   a {
     display: inline;
-    color: white;
+    color: $topnav-link-color;
     position: relative;
     top: $zag-height / 2;
 

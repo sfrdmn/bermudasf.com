@@ -74,6 +74,7 @@ var MainView = Base.extend({
     this.$nav = $('nav');
     this.$bagEls = $('.item');
 
+    this.setRandomBackground()
     this.initializeImprint();
     this.initializeNavHighlights();
     this.initializeNavEffect();
@@ -129,6 +130,17 @@ var MainView = Base.extend({
       }
     };
     $(window).on('scroll resize', onScrollResize);
+  },
+
+  setRandomBackground: function() {
+    var images = [
+     'long-hair.jpg',
+     'cara-bag-hike.jpg',
+     'sam-bg-color-lowqual.jpg'
+    ];
+    var $header = $('body > header');
+    $header.css('background-image', 'url(/static/img/' +
+        images[Math.floor(Math.random() * images.length)] + ')')
   },
 
   createBagViews: function() {
