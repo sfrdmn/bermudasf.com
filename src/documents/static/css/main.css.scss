@@ -11,7 +11,6 @@ $header-background-image: url(/static/img/sam-bg-color-lowqual.jpg);
 $header-background-image: url(/static/img/sam-bg-color-lowqual.jpg);
 $header-background-image: url(/static/img/cara-bag-hike.jpg);
 $header-background-image: url(/static/img/long-hair.jpg);
-$header-background-image: url(dummy);
 
 $gutter: 3%;
 $gutter-mobile: 12px;
@@ -29,13 +28,14 @@ $link-color: #b39a9d;
 $link-color: #444;
 $pink-color: #ffdce0;
 
-$logo-name: "logo-white";
+$logo-name: "logo-dune-white-shadow";
 $logo-filename: $logo-name + ".png";
 $logo-filename-2x: $logo-name + ".2x.png";
-$logo-width-desktop: 301px * .75;
-$logo-height-desktop: 227px * .75;
-$logo-width-mobile: $logo-width-desktop * .75;
-$logo-height-mobile: $logo-height-desktop * .75;
+$logo-width-desktop: 345px;
+$logo-height-desktop: 300px;
+$logo-width-mobile: $logo-width-desktop * .5;
+$logo-height-mobile: $logo-height-desktop * .5;
+$logo-ratio: percentage($logo-height-desktop/$logo-width-desktop);
 
 $zag-width: 95px;
 $zag-height: 8px;
@@ -68,6 +68,10 @@ $h-weight: 500;
 $h-font-size: $nav-font-size;
 
 // MIXINS / MODULES
+
+#scroll-to-top {
+  display: none;
+}
 
 .clearfix {
   *zoom: 1;
@@ -122,9 +126,8 @@ nav.nav-big {
   text-align: center;
   width: $nav-width;
 
-
   ul {
-    margin-bottom: $nav-font-size-mobile / 2;
+    margin-bottom: 1em;
   }
 
   li {
@@ -193,7 +196,7 @@ body > footer {
 }
 
 header {
-  //overflow: hidden;
+  overflow: hidden;
   position: relative;
   top: 0;
   z-index: 2;
@@ -217,18 +220,18 @@ header {
   }
 
   aside {
+    //background-color: rgba(0, 0, 0, 0.16);
     position: relative;
     top: 0;
     height: 100%;
     min-width: $nav-width;
-    overflow: hidden;
+    //overflow: hidden;
     text-align: center;
   }
 
   .logo {
-    overflow: hidden;
     margin: 0 auto;
-    margin-top: $gutter * 2;
+    margin-top: $gutter;
     background-image: url(/static/img/#{$logo-filename});
     background-size: $logo-width-mobile $logo-height-mobile;
     width: $logo-width-mobile;
@@ -240,6 +243,7 @@ header {
     bottom: 0;
     left: 50%;
     margin-left: -125px;
+    margin-bottom: 1em;
   }
 }
 
@@ -501,32 +505,32 @@ footer {
 }
 
 #scroll-to-top {
-  position: fixed; 
+  position: fixed;
   top: 10px;
   left: 10px;
   font-size: 14px;
   line-height: 14px;
-  
+
   &:hover {
     text-decoration: none;
     border-bottom-width: 0 !important;
     font-style: italic;
   }
 }
-      
+
 
 // MEDIA QUERIES
 
 @media only screen
 and (min-width : 768px) {
 
+  #scroll-to-top {
+    display: block;
+  }
+
   nav.nav-big {
     font-size: $nav-font-size;
     width: $nav-width;
-
-    ul {
-      margin-bottom: $nav-font-size / 2;
-    }
 
     li {
       font-weight: $nav-font-weight;
@@ -588,8 +592,16 @@ and (min-width : 768px) {
       margin-bottom: $gutter-main;
     }
 
+    aside {
+      //overflow: visible;
+    }
+
     .logo {
       background-size: $logo-width-desktop $logo-height-desktop;
+      position: absolute;
+      margin-top: $gutter * 2;
+      left: 50%;
+      margin-left: -$logo-width-desktop/2;//+$nav-width/2;
       width: $logo-width-desktop;
       height: $logo-height-desktop;
     }
@@ -603,13 +615,17 @@ and (min-width : 768px) {
     }
 
     & > section {
-      padding-left: $left-column + $gutter * 2;
+      //padding-left: $left-column + $gutter * 2;
       padding-left: $left-column + $gutter;
       padding-right: $gutter;
     }
 
     & > section > section {
       max-width: 800px;
+    }
+
+    nav.nav-big ul {
+      margin-bottom: 0;
     }
 
     & > .nav-container {
@@ -621,6 +637,10 @@ and (min-width : 768px) {
 
       nav.nav-big {
         margin: 0 auto;
+
+        ul {
+          margin-bottom: 0;
+        }
       }
 
       a {

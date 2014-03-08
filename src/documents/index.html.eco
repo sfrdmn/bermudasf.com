@@ -104,8 +104,9 @@ categories:
 
 <header id="top">
   <!-- <div class="fb-like-box" data-href="http://www.bermudasf.com" data-width="50" data-show-faces="false" data-stream="false" data-header="false"></div> -->
+
   <aside>
-    <div class="logo"></div>
+<div class="logo"></div>
     <%= nav() %>
   </aside>
 </header>
