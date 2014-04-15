@@ -21,7 +21,7 @@ var Util = {
       if (isReady) {
         isReady = false;
         setTimeout(function() {
-          isReady = true; 
+          isReady = true;
         }, delay);
         fn.apply(this, arguments);
       }
@@ -201,13 +201,22 @@ var BagView = Base.extend({
     this.addHoverClass();
     if (this.$images.length > 1) {
       if (this.isMobile()) {
-        this.$list.delegate('img', 'swipeLeft', bind(this.next, this));
-        this.$list.delegate('img', 'swipeRight', bind(this.previous, this));
+        this.startBagAnimation()
       } else {
         this.$list.delegate('img', 'click', bind(this.onClick, this));
         this.$list.bind('mouseenter', bind(this.onMouseEnter, this));
         this.$list.bind('mouseleave', bind(this.onMouseLeave, this));
       }
+    }
+  },
+
+  animationSpeed: 750,
+
+  startBagAnimation: function() {
+    setTimeout(bind(next, this), this.animationSpeed)
+    function next() {
+      this.next()
+      setTimeout(bind(next, this), this.animationSpeed)
     }
   },
 

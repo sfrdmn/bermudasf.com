@@ -29,8 +29,7 @@
     Modernizr.load({
       test: Modernizr.touch,
       yep: [
-        '/static/vendor/js/zepto.min.js',
-        '/static/vendor/js/swipe.min.js'
+        '/static/vendor/js/zepto.min.js'
       ],
       nope: [
        '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
