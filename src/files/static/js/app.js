@@ -115,7 +115,7 @@ var MainView = Base.extend({
     var $header = $('body > header');
     var $nav = $header.find('nav');
     var navHeight = $nav.height();
-    var fixedOffset = 34; // pixels from top of fixed nav
+    var fixedOffset = 34 * 2; // pixels from top of fixed nav. somewhat magic
     var isFixed = true;
     function onScrollResize() {
       var bbox = $header[0].getBoundingClientRect();
