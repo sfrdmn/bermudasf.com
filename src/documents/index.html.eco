@@ -5,20 +5,16 @@ path: /static/img/bags/
 
 about: |
   <p>
-    Bermuda SF is a bag and apparel company based in San Francisco. We started in the Winter of 2012, intent on making bags using locally sourced, recycled materials whenever possible. Over five years of work experience are behind our designs. If you have something in mind and you don't see it on the site, let us know, and we'll try to make it happen.
+  All backpacks are handmade using: YKK brand zippers, interior laptop sleeve, two side pockets, cargo straps, dual front 3D pocket and assortment of other small interior pockets. Please ask for current availability of colors. Your choice of materials be it 10 oz. canvas, 1000D corudura, or waxed canvas are options depending on availability. Bags seen on this site are considered in stock.
   </p>
 
 ordering: |
   <p>
-    To order, either use the PayPal links or send an email to
-    <a href="mailto:bermudasf@gmail.com">bermudasf@gmail.com</a>.
-    If you want anything customized, make sure to include that.
+    Cost of shipment is included in your order.
+    Tracking number will be provided once shipment has been placed, USPS, continental us orders 3-5 business days.
   </p>
   <p>
-    If you want something shipped to you, please include
-    your address and we'll work out the shipping cost. Whenever possible, bags are
-    sent in a flat-rate package costing about $13.
-    If you're local and you want to pay cash, we can work that out too.
+    For custom work and wholesale please inquire here: <a href="mailto:bermudasf@gmail.com">bermudasf@gmail.com</a>
   </p>
 
 categories:
@@ -26,66 +22,35 @@ categories:
     items:
       - id: Rucksack
         description: |
-          Draw string closure on the top, cargo straps for extra goodies.
-          Basic bag comes with: outside color, inside color, large front pocket,
-          smaller zippered front pocket, two side pockets, padded back and shoulder pads.
-        price: 175
+          Draw string closure and zippered flap pocket.
+        price: 225
         low_res:
-          - 1-ruck.jpg
-          - 8-ruck.jpg
-          - 7-ruck.jpg
-          - 6-ruck.jpg
-          - 5-ruck.jpg
-          - 4-ruck.jpg
-          - 3-ruck.jpg
-          - 2-ruck.jpg
+          - new-ruck.jpg
 
   - name: Rolltop
     items:
       - id: Rolltop
         description: |
-          Two straps on the top of the bag hold the rolled portion closed securely.
-          Basic bag comes with: outside color, inside color, large front pocket,
-          smaller zippered front pocket, two side pockets, padded back and shoulder pads.
-        price: 175
+          This design has a lengthened opening for top end loading.
+        price: 225
         low_res:
-          - roll-1.jpg
-          - roll-8.jpg
-          - roll-7.jpg
-          - roll-6.jpg
-          - roll-5.jpg
-          - roll-4.jpg
-          - roll-3.jpg
-          - roll-2.jpg
-  - name: Custom
+          - new-roll.jpg
+  - name: Duffel
     items:
-      - id: Faux Suede/Velvet
+      - id: Duffel
         description: |
-          Faux suede and velvet. Limited quantities of both fabrics, get it while it lasts!
-          Velvet comes from a curtain. The faux suede is also reclaimed material.
-        price: 125
+          Standard duffel, comes with ruby interior and pockets.
+        price: 135
         low_res:
-          - fox.jpg
-      - id: Brushed
+          - new-duffel.jpg
+  - name: Dopp Kit
+    items:
+      - id: Dopp Kit
         description: |
-          White canvas with hand painted design.
-          Shoulder straps are also painted.
-        price: 125
+          Cool dopp kit.
+        price: 45
         low_res:
-          - pint.jpg
-      - id: The Poncho Pack
-        description: |
-          Recycled denim with Mexican poncho pocket and base.
-          Comes from an actual mexican poncho. Cool!
-        price: 125
-        low_res:
-          - ponchodenim.jpg
-      - id: Tramp Bag
-        description: |
-          Recycled trampoline material with faux ostrich lining and pocket.
-        price: 125
-        low_res:
-          - tramp.jpg
+          - new-dopp.jpg
 ---
 
 <!-- Nav widget -->
@@ -150,11 +115,6 @@ categories:
         </div>
         <aside class="item-info">
           <div class="tag price">$<%- item.price %></div>
-          <!--<a class="tag btn details">View details</div>-->
-          <a href="mailto:bermudasf@gmail.com?subject=<%- encodeURIComponent(item.id + ' Order') %>&body=<%- encodeURIComponent('Order for: ' + item.id + '\n\n' + 'So how\'s this gunna work? Please provide all details needed to get you your bag!') %>"
-              class="tag btn order-email">
-            Order by email
-          </a>
           <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
             <input type="hidden" name="cmd" value="_xclick">
             <input type="hidden" name="business" value="35YSFN7VHS2QC">
@@ -163,9 +123,9 @@ categories:
             <input type="hidden" name="amount" value="<%- item.price %>">
             <input type="hidden" name="currency_code" value="USD">
             <input type="hidden" name="button_subtype" value="services">
-            <input type="hidden" name="shipping" value="12.95">
+            <input type="hidden" name="shipping" value="0">
             <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted">
-            <button type="submit" class="tag btn order">Order by PayPal</button>
+            <button type="submit" class="tag btn order">Buy</button>
           </form>
         </aside>
         <div class="clearfix"></div>
@@ -183,7 +143,7 @@ categories:
       <a href="#" id="imprint-link">Imprint</a>
     </li>
     <li>
-      <div class="peace">✌</div>
+      <span class="peace">✌</span>
     </li>
   </ul>
 </footer>

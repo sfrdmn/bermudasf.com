@@ -192,22 +192,22 @@ var BagView = Base.extend({
   },
 
   initialize: function(el) {
-    this.el = el;
-    this.$el = $(el);
-    this.$images = this.$el.find('img');
-    this.$list = this.$el.find('ul.low-res');
+    // this.el = el;
+    // this.$el = $(el);
+    // this.$images = this.$el.find('img');
+    // this.$list = this.$el.find('ul.low-res');
 
-    this.preloadImages();
-    this.addHoverClass();
-    if (this.$images.length > 1) {
-      if (this.isMobile()) {
-        this.startBagAnimation()
-      } else {
-        this.$list.delegate('img', 'click', bind(this.onClick, this));
-        this.$list.bind('mouseenter', bind(this.onMouseEnter, this));
-        this.$list.bind('mouseleave', bind(this.onMouseLeave, this));
-      }
-    }
+    // this.preloadImages();
+    // this.addHoverClass();
+    // if (this.$images.length > 1) {
+    //   if (this.isMobile()) {
+    //     this.startBagAnimation()
+    //   } else {
+    //     this.$list.delegate('img', 'click', bind(this.onClick, this));
+    //     this.$list.bind('mouseenter', bind(this.onMouseEnter, this));
+    //     this.$list.bind('mouseleave', bind(this.onMouseLeave, this));
+    //   }
+    // }
   },
 
   animationSpeed: 750,
