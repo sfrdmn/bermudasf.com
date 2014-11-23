@@ -26,6 +26,7 @@ categories:
         price: 225
         low_res:
           - new-ruck.jpg
+          - new-ruck-open.jpg
 
   - name: Rolltop
     items:
@@ -43,6 +44,7 @@ categories:
         price: 135
         low_res:
           - new-duffel.jpg
+          - new-duffel-detail.jpg
   - name: Dopp Kit
     items:
       - id: Dopp Kit
