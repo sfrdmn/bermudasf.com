@@ -201,7 +201,7 @@ var BagView = Base.extend({
     this.addHoverClass();
     if (this.$images.length > 1) {
       if (this.isMobile()) {
-        this.startBagAnimation()
+        // this.startBagAnimation()
       } else {
         this.$list.delegate('img', 'click', bind(this.onClick, this));
         this.$list.bind('mouseenter', bind(this.onMouseEnter, this));
