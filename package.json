@@ -1,6 +1,6 @@
 {
   "name": "bermudasf.com",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "description": "Jon Knox bagz",
   "keywords": [
@@ -15,13 +15,10 @@
     "type": "git",
     "url": "https://github.com/sfrdmn/bermudasf.com"
   },
-  "devDependencies": {
-    "docpad": "6.x"
-  },
   "dependencies": {
-    "docpad-plugin-eco": "2.x",
-    "docpad-plugin-sass": "~2.4.5",
-    "docpad-plugin-marked": "~2.1.0"
-  },
-  "main": "node_modules/docpad/bin/docpad-server"
+    "docpad-plugin-sass": "~2.7.3",
+    "docpad-plugin-eco": "~2.1.0",
+    "docpad-plugin-marked": "~2.2.1",
+    "docpad": "~6.69.1"
+  }
 }
