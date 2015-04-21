@@ -1,0 +1,86 @@
+{% include 'partials/head' %}
+
+<header id="top">
+  <aside>
+    <div class="logo"></div>
+    {% include 'partials/nav' %}
+  </aside>
+</header>
+
+<a id="scroll-to-top" href="#top" data-id="top">(Scroll to top)</a>
+
+<div class="nav-container">
+  {% include 'partials/nav' %}
+</div>
+
+<section id="info">
+  {% for description in descriptions %}
+    <section class="post {{description.id}}">
+      <h2 class="zagged">{{description.title}}</h2>
+      <div class="description">
+        {{description.body}}
+      </div>
+    </section>
+  {% endfor %}
+</section>
+
+<section id="shop">
+  {% for bag in bags %}
+    <section class="post {{bag.id}}">
+      <h2 class="zagged">{{bag.title}}</h2>
+      <div class="item">
+        <ul class="low-res">
+          {% for image in bag.gallery %}
+            <li>
+              <img draggable="false"
+                  src="{{image.uri}}"
+                  alt="{{image.caption}}">
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="description">
+        {{bag.description}}
+      </div>
+      <aside class="item-info">
+      <div class="tag price">${{bag.price}}</div>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+          <input type="hidden" name="cmd" value="_xclick">
+          <input type="hidden" name="business" value="35YSFN7VHS2QC">
+          <input type="hidden" name="lc" value="US">
+          <input type="hidden" name="item_name" value="{{bag.title}}">
+          <input type="hidden" name="amount" value="{{bag.price}}">
+          <input type="hidden" name="currency_code" value="USD">
+          <input type="hidden" name="button_subtype" value="services">
+          <input type="hidden" name="shipping" value="0">
+          <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted">
+          <button type="submit" class="tag btn order">Buy</button>
+        </form>
+      </aside>
+      <div class="clearfix"></div>
+    </section>
+  {% endfor %}
+</section>
+
+<footer>
+  <ul>
+    <li>
+      <a href="https://github.com/sfrdmn/bermudasf.com">Source</a>
+    </li>
+    <li>
+      <a href="#" id="imprint-link">Imprint</a>
+    </li>
+    <li>
+      <span class="peace">✌</span>
+    </li>
+  </ul>
+</footer>
+
+<aside class="imprint">
+  <a href="#" class="close">X</a>
+  <div>
+      Site designed by <a href="http://www.seanfridman.com">Sean Fridman</a>
+  </div>
+</aside>
+
+{% include 'partials/foot' %}

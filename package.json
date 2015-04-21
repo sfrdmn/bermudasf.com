@@ -1,6 +1,6 @@
 {
   "name": "bermudasf.com",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "private": true,
   "description": "Jon Knox bagz",
   "keywords": [
@@ -11,8 +11,10 @@
     "love"
   ],
   "scripts": {
-    "gen": "docpad generate",
-    "serve": "docpad run"
+    "serve": "node index.js",
+    "scss": "node-sass --source-map public/css/main.min.css.map --output-style compressed scss/main.scss public/css/main.min.css",
+    "scss-dev": "node-sass scss/main.scss public/css/main.css",
+    "watch": "node-sass --source-map public/css/main.css.map -w scss -o public/css main.css"
   },
   "author": "Sean Fridman <fridman@mail.sfsu.edu> (http://seanfridman.com)",
   "repository": {
@@ -20,9 +22,9 @@
     "url": "https://github.com/sfrdmn/bermudasf.com"
   },
   "dependencies": {
-    "docpad-plugin-sass": "~2.7.3",
-    "docpad-plugin-eco": "~2.1.0",
-    "docpad-plugin-marked": "~2.2.1",
-    "docpad": "~6.69.1"
+    "okcms": "git+ssh://git@github.com:okfocus/okcms.git#v0.1.1"
+  },
+  "devDependencies": {
+    "node-sass": "^2.1.1"
   }
 }

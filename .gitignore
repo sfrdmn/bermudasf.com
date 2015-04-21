@@ -1,6 +1,6 @@
 *.swp
 node_modules/
-out/
-.bin/
-.DS_STORE
-build/
+public/css/*
+.DS_Store
+.env
+db.json

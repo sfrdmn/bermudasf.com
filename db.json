@@ -1,0 +1,82 @@
+{
+  "description": [
+    {
+      "title": "about",
+      "body": "All backpacks are handmade using: YKK brand zippers, interior laptop sleeve, two side pockets, cargo straps, dual front 3D pocket and assortment of other small interior pockets. Please ask for current availability of colors. Your choice of materials be it 10 oz. canvas, 1000D corudura, or waxed canvas are options depending on availability. Bags seen on this site are considered in stock.",
+      "__index": 0,
+      "id": "about"
+    },
+    {
+      "title": "ordering",
+      "body": "Cost of shipment is included in your order. Tracking number will be provided once shipment has been placed, USPS, continental US orders 3-5 business days.\r\n\r\nFor custom work and wholesale please inquire here: bermudasf@gmail.com",
+      "__index": 1,
+      "id": "ordering"
+    }
+  ],
+  "bag": [
+    {
+      "title": "Rucksack",
+      "description": "S: 6 x 11 x 21 <br>\r\nM: 7 x 12 x 23 <br>\r\nL: 8 x 13 x 24.5 <br>\r\n<p>\r\nDurable bag for all situations/personalities. \r\nComes with laptop sleeve, xtra straps, zippered flap pocket, two 3D pockets and chest strap. \r\nLarge bag comes with waist strap.\r\n</p>",
+      "gallery": [
+        {
+          "uri": "https://bermuda-sf.s3.amazonaws.com/b164ece9-414b-401d-b6a6-7916d9d0011b.jpg",
+          "caption": ""
+        },
+        {
+          "uri": "https://bermuda-sf.s3.amazonaws.com/4b5057ee-e546-487f-b811-4c9bf6b7710f.jpg",
+          "caption": ""
+        }
+      ],
+      "price": 225,
+      "__index": 0,
+      "id": "rucksack"
+    },
+    {
+      "id": "rolltop",
+      "title": "Rolltop",
+      "description": "S: 6 x 11 x 30 <br>\r\nM: 7 x 12 x 31 <br>\r\nL: 8 x 13 x 32.5 <br>\r\n<p>\r\nStuff more stuff with the extra long unrolling feature.  \r\nComes with laptop sleeve, xtra straps, zippered flap pocket, two 3D pockets and chest strap. \r\nLarge bag comes with waist strap. \r\n</p>",
+      "gallery": [
+        {
+          "uri": "https://bermuda-sf.s3.amazonaws.com/fcb04d64-3177-419c-afd6-38f443dbf53c.jpg",
+          "caption": ""
+        }
+      ],
+      "price": 225,
+      "__index": 1
+    },
+    {
+      "id": "duffel",
+      "title": "Duffel",
+      "description": "10 x 10 x 23\r\n<p>\r\nThe thing you put in your hand when you have a backpack on already. Two outer pockets and two inner pockets.\r\n</p>",
+      "gallery": [
+        {
+          "uri": "https://bermuda-sf.s3.amazonaws.com/a79b0f9c-71d4-4c74-a60a-5fc66d0170a3.jpg",
+          "caption": ""
+        },
+        {
+          "uri": "https://bermuda-sf.s3.amazonaws.com/9e298c02-fb78-49db-ade6-ee7cf3167a95.jpg",
+          "caption": ""
+        }
+      ],
+      "price": 135,
+      "__index": 2
+    },
+    {
+      "id": "film-bag-dopp-kit",
+      "title": "Film Bag / Dopp kit ",
+      "description": "4 x 4 x 9\r\n<p>\r\nHolds your getaway/traveling/transient goods, Americana-trailer printed lining. \r\n</p>",
+      "gallery": [
+        {
+          "uri": "https://bermuda-sf.s3.amazonaws.com/492cfe88-c27b-4795-8dfb-c979a4c2f90d.jpg",
+          "caption": ""
+        },
+        {
+          "uri": "https://bermuda-sf.s3.amazonaws.com/8a19df99-3297-406d-aa31-e777446eeb9d.jpg",
+          "caption": ""
+        }
+      ],
+      "price": 45,
+      "__index": 3
+    }
+  ]
+}
