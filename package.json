@@ -14,7 +14,8 @@
     "serve": "node index.js",
     "scss": "node-sass --source-map public/css/main.min.css.map --output-style compressed scss/main.scss public/css/main.min.css",
     "scss-dev": "node-sass scss/main.scss public/css/main.css",
-    "watch": "node-sass --source-map public/css/main.css.map -w scss -o public/css main.css"
+    "watch": "node-sass --source-map public/css/main.css.map -w scss -o public/css main.css",
+    "postinstall": "node run scss-dev"
   },
   "author": "Sean Fridman <fridman@mail.sfsu.edu> (http://seanfridman.com)",
   "repository": {
