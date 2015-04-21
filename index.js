@@ -8,7 +8,7 @@ var app  = okcms.createApp({
 
   root: 'public',
 
-  debug: true,
+  debug: false,
 
   schemas: {
 
