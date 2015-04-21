@@ -23,7 +23,7 @@
     "url": "https://github.com/sfrdmn/bermudasf.com"
   },
   "dependencies": {
-    "okcms": "git+ssh://git@github.com:okfocus/okcms.git#v0.1.1"
+    "okcms": "git+ssh://git@github.com:okfocus/okcms.git#v0.1.3"
   },
   "devDependencies": {
     "node-sass": "^2.1.1"
